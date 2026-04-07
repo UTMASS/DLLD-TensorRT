@@ -18,16 +18,9 @@ real-time/
   README.md                 This file
 ```
 
-**Not included** (too large for distribution):
-
-- `culane_res18.onnx` + `culane_res18.onnx.data` — ONNX model weights (~913 MB total)
-- `culane_res18_fp16.trt` — Pre-built TensorRT FP16 engine (~394 MB)
-
----
-
 ## Getting the Model Weights
 
-Download the CULane ResNet18 ONNX model from the [Ultra-Fast-Lane-Detection-v2](https://github.com/cfzd/Ultra-Fast-Lane-Detection-v2) repository and place both files in this folder:
+Download the CULane ResNet18 or BDD100K ONNX model from the [Ultra-Fast-Lane-Detection-v2](https://github.com/cfzd/Ultra-Fast-Lane-Detection-v2) repository and place both files in this folder:
 
 ```
 culane_res18.onnx          (the model header)
