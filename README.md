@@ -14,7 +14,6 @@ real-time/
   export_trt_engine.py      ONNX-to-TensorRT engine builder (FP16 / FP32)
   benchmark.py              Performance comparison between ONNX and TensorRT backends
   requirements.txt          Python dependencies
-  car.png                   HUD asset (car icon for bird's-eye-view panel)
   LICENSE                   MIT license
   README.md                 This file
 ```
