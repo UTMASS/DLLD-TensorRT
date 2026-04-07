@@ -108,7 +108,7 @@ The pipeline runs in five stages for each frame:
 4. **Curvature estimation** — Transform ego-lane points into a pseudo bird's-eye-view, fit second-order polynomials, and compute curvature radius and steering angle.
 5. **Rendering** — Draw diamond markers on all four lanes, fill the ego lane with a gradient overlay, and optionally display HUD panels.
 
-Frame skipping (default: every 3rd frame) reduces GPU load by reusing the previous detection on intermediate frames. Combined with EMA smoothing, this yields stable output at 60+ FPS on a desktop GPU with TensorRT FP16.
+Frame skipping (default: every 3rd frame) reduces GPU load by reusing the previous detection on intermediate frames. Combined with EMA smoothing, this yields stable output at 20+ FPS on a desktop GPU with TensorRT FP16.
 
 ---
 
@@ -124,7 +124,7 @@ The system already achieves strong frame rates. The ideas below are about going 
 | Inference (TensorRT FP16) | 3-6 ms | GPU-bound, main bottleneck |
 | Postprocessing (softmax, anchors) | 1-3 ms | CPU-bound (NumPy) |
 | Rendering (overlays, HUD) | 2-4 ms | CPU-bound (OpenCV drawing) |
-| Total per frame | ~8-15 ms | 65-120 FPS theoretical |
+| Total per frame | ~8-15 ms | 20 FPS theoretical |
 
 ### INT8 quantization
 
@@ -189,7 +189,7 @@ These compound with INT8 quantization -- a pruned MobileNet backbone at INT8 cou
 
 ## Why C++ Matters for Production
 
-Python is excellent for prototyping. This codebase proves it -- we went from concept to a working 60 FPS system quickly. But for production deployment in a vehicle, C++ offers advantages that are hard to replicate in Python.
+Python is excellent for prototyping. This codebase proves it -- we went from concept to a working 20 FPS system quickly. But for production deployment in a vehicle, C++ offers advantages that are hard to replicate in Python.
 
 ### Predictable latency
 
@@ -235,7 +235,7 @@ This way you get production performance without losing the ability to quickly te
 
 ## Summary of Expected Gains
 
-Starting from the current baseline (TensorRT FP16, skip=3, ~60 FPS on desktop GPU):
+Starting from the current baseline (TensorRT FP16, skip=3, ~20 FPS on desktop GPU):
 
 | Optimization | Estimated Speedup | Effort |
 |---|---|---|
