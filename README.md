@@ -1,4 +1,4 @@
-# Real-Time Deep Learning Lane Detection
+# Ultra-Fast-Lane-Detection V2 TensorRT
 
 A self-contained, real-time lane detection system built on Ultra-Fast-Lane-Detection v2 (UFLD v2). Detects up to four lanes from dashcam video or webcam feeds using ONNX Runtime or TensorRT inference. This folder contains everything needed to run the system -- just add the model weights.
 
